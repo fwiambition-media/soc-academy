@@ -1085,8 +1085,7 @@ ul { list-style: none; }
 #login-wall.hidden { display: none; }
 
 /* Netlify Identity widget au-dessus du login wall */
-[data-netlify-identity-widget],
-div[style*="z-index"] > iframe#netlify-identity-widget {
+iframe#netlify-identity-widget {
   z-index: 100000 !important;
 }
 
