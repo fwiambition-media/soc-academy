@@ -1,0 +1,28 @@
+# ============================================================
+#  SOC ACADEMY — Configuration Netlify
+# ============================================================
+
+[build]
+  publish = "."
+  command = ""
+
+# ── Sécurité : headers HTTP sur toutes les pages ──────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Anti-clickjacking
+    X-Frame-Options = "DENY"
+    # Empêche le navigateur de deviner le type MIME
+    X-Content-Type-Options = "nosniff"
+    # Active le filtre XSS du navigateur
+    X-XSS-Protection = "1; mode=block"
+    # Limite les infos envoyées au référent externe
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Désactive fonctionnalités navigateur inutiles
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    # Force HTTPS pendant 1 an
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# ── Netlify Identity ──────────────────────────────────────
+[template.environment]
+  NETLIFY_IDENTITY = "true"
