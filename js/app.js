@@ -48,9 +48,22 @@ function initAuth() {
   netlifyIdentity.on('logout', ()   => showWall());
 
   // Boutons de la login wall
-  document.getElementById('btn-login') ?.addEventListener('click', () => netlifyIdentity.open('login'));
-  document.getElementById('btn-signup')?.addEventListener('click', () => netlifyIdentity.open('signup'));
+  document.getElementById('btn-login') ?.addEventListener('click', () => {
+    wall.style.display = 'none';
+    netlifyIdentity.open('login');
+  });
+  document.getElementById('btn-signup')?.addEventListener('click', () => {
+    wall.style.display = 'none';
+    netlifyIdentity.open('signup');
+  });
   document.getElementById('btn-logout')?.addEventListener('click', () => netlifyIdentity.logout());
+
+  // Si l'utilisateur ferme le widget sans se connecter → réafficher le login wall
+  netlifyIdentity.on('close', () => {
+    if (!netlifyIdentity.currentUser()) {
+      wall.style.display = '';
+    }
+  });
 }
 
 // ── State ────────────────────────────────────────────────────
