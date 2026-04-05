@@ -1042,6 +1042,14 @@ document.addEventListener('click', (e) => {
 
 // ── Init ──────────────────────────────────────────────────────
 window.addEventListener('hashchange', router);
+// Force z-index des iframes Netlify Identity au-dessus du login wall
+const _niObserver = new MutationObserver(() => {
+  document.querySelectorAll('iframe#netlify-identity-widget').forEach(f => {
+    f.style.setProperty('z-index', '100000', 'important');
+  });
+});
+_niObserver.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
+
 window.addEventListener('DOMContentLoaded', () => {
   initAuth();
   refreshGlobalProgress();
