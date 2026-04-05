@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>SOC Academy — Formation Cybersécurité</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <!-- ══ LOGIN WALL ══════════════════════════════════════════ -->
+  <div id="login-wall">
+    <div class="lw-card">
+      <div class="lw-logo">
+        <span class="lw-logo-icon">⚔</span>
+        <div>
+          <div class="lw-logo-title">SOC Academy</div>
+          <div class="lw-logo-sub">Formation Cybersécurité</div>
+        </div>
+      </div>
+
+      <div class="lw-divider"></div>
+
+      <div class="lw-desc">
+        <p>23 cours terrain · 6 modules · Labs pratiques</p>
+        <p>Active Directory, SIEM, EDR, Threat Hunting…</p>
+        <p>Le parcours complet pour devenir <strong>SOC Analyst L1</strong>.</p>
+      </div>
+
+      <div class="lw-actions">
+        <button class="lw-btn lw-btn-primary" id="btn-login">
+          Se connecter
+        </button>
+        <button class="lw-btn lw-btn-outline" id="btn-signup">
+          Créer un compte gratuit
+        </button>
+      </div>
+
+      <div class="lw-footer">
+        Compte gratuit · Progression sauvegardée · Données privées
+      </div>
+    </div>
+  </div>
+  <div id="app">
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <span class="logo-icon">⚔</span>
+          <div>
+            <div class="logo-title">SOC Academy</div>
+            <div class="logo-sub">Formation Cybersécurité</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item" data-page="dashboard">
+          <span class="nav-icon">⊞</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="#modules" class="nav-item" data-page="modules">
+          <span class="nav-icon">◉</span>
+          <span>Modules</span>
+        </a>
+        <a href="#labs" class="nav-item" data-page="labs">
+          <span class="nav-icon">⚗</span>
+          <span>Labs & Pratique</span>
+        </a>
+        <a href="#projets" class="nav-item" data-page="projets">
+          <span class="nav-icon">◈</span>
+          <span>Projets Portfolio</span>
+        </a>
+        <a href="#certifications" class="nav-item" data-page="certifications">
+          <span class="nav-icon">◆</span>
+          <span>Certifications</span>
+        </a>
+        <a href="#tracker" class="nav-item" data-page="tracker">
+          <span class="nav-icon">▦</span>
+          <span>Tracker</span>
+        </a>
+        <a href="#emploi" class="nav-item" data-page="emploi">
+          <span class="nav-icon">⬡</span>
+          <span>Stratégie Emploi</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-progress">
+        <div class="sp-label">Progression globale</div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="global-progress-bar" style="width:0%"></div>
+        </div>
+        <div class="sp-pct" id="global-progress-pct">0%</div>
+      </div>
+    </aside>
+
+    <!-- Mobile topbar -->
+    <header id="topbar">
+      <button id="menu-toggle" onclick="toggleSidebar()">☰</button>
+      <span class="topbar-title">SOC Academy</span>
+      <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
+        <div class="topbar-badge" id="streak-badge" title="Jours consécutifs">🔥 <span id="streak-count">0</span></div>
+        <div id="user-menu" style="display:none;align-items:center;gap:8px">
+          <span id="user-avatar" class="user-avatar"></span>
+          <button class="btn-logout" id="btn-logout" title="Se déconnecter">⏻</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main id="main">
+      <div id="content">
+        <!-- Dynamic content rendered here -->
+      </div>
+    </main>
+
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
