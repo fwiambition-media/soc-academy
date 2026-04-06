@@ -3,7 +3,7 @@
 # ============================================================
 
 [build]
-  publish = "SOC-Academy"
+  publish = "."
   command = ""
 
 # ── Sécurité : headers HTTP sur toutes les pages ──────────
